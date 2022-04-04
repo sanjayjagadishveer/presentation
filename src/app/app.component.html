@@ -1,0 +1,20 @@
+<h1>{{title}}</h1>
+<input type="text" disabled [id]="email" value="sbiinsurance">
+<input type="text"  id="{{email}}" value="sbilife">
+<h2>{{fullname | uppercase}}</h2>
+<div>
+  <label for="name">Enter your name</label>
+  <input id="name" [(ngModel)]="fullname" placeholder="enter name">
+</div>
+<h2 *ngIf="getNotification">Notification</h2>
+<div [ngSwitch]="color">
+  <div *ngSwitchCase="'red'" style="color: red;">Fixed Deposit</div>
+  <div *ngSwitchCase="'blue'" style="color: blue;">Recuring Deposit</div>
+  <div *ngSwitchCase="'green'" style="color: green;">Time Deposit</div>
+
+</div>
+<div *ngFor="let card of cards">
+<h3>{{card}}</h3>
+</div>
+<button (click)="onSub()">Subscribe</button>
+<button (click)="onUns($event)">Unsubscribe</button>
